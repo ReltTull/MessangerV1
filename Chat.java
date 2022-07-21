@@ -14,6 +14,13 @@ public class Chat {
      */
     static ArrayList<String> blockedUsersList = new ArrayList<>();
 
+    void showBlockedUsers() {
+        System.out.println("Blocked users: ");
+        for (int i = 0; i < blockedUsersList.size(); i++) {
+            System.out.println(blockedUsersList.get(i));
+        }
+    }
+
     FileWriter writer = new FileWriter(connector.file, true);
     DocMessage docMessage;
 
@@ -27,7 +34,7 @@ public class Chat {
      * @param user
      * @throws IOException
      */
-    public void sendTextMessage(TextMessage tm, RegularUser user) throws IOException {
+    public void sendTextMessage(TextMessage tm, User user) throws IOException {
         if (!blockedUsersList.contains(user.name)) {
             writer.write(tm.showMessage() + "\n" + user.name + ", " + dateNow + "\n");
             writer.flush();
