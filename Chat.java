@@ -47,7 +47,7 @@ public class Chat {
      * @param user
      * @throws IOException
      */
-    public void sendTextMessage(TextMessagesStorage tm, User user) throws IOException {
+    public void sendTextMessage(TextMessage tm, User user) throws IOException {
         if ((chatMembers.contains(user.name)) && (!blockedUsersList.contains(user.name))) {
             writer.write(tm.showMessage() + "\n" + user.name + ", " + dateNow + "\n");
             writer.flush();
