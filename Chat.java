@@ -12,14 +12,14 @@ public class Chat {
     /**
      * Список участиков чата.
      */
-    static ArrayList<String> chatUsers = new ArrayList<>();
+    static ArrayList<String> chatMembers = new ArrayList<>();
 
     /**
      * Добавление юзера в чат.
      * @param user
      */
     void addUserToChat(User user) {
-        chatUsers.add(user.name);
+        chatMembers.add(user.name);
     }
 
     /**
@@ -47,8 +47,8 @@ public class Chat {
      * @param user
      * @throws IOException
      */
-    public void sendTextMessage(TextMessage tm, User user) throws IOException {
-        if ((chatUsers.contains(user.name)) && (!blockedUsersList.contains(user.name))) {
+    public void sendTextMessage(TextMessagesStorage tm, User user) throws IOException {
+        if ((chatMembers.contains(user.name)) && (!blockedUsersList.contains(user.name))) {
             writer.write(tm.showMessage() + "\n" + user.name + ", " + dateNow + "\n");
             writer.flush();
             writer.close();
