@@ -1,6 +1,6 @@
-public class TextMessagesStorage extends Message{
+public class TextMessage extends Message{
     private String text;
-    public TextMessagesStorage(String text) {
+    public TextMessage(String text) {
         this.text = text;
     }
     @Override
