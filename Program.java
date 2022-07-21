@@ -1,17 +1,17 @@
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Program {
     public static void main(String[] args) throws IOException {
         Chat chat = new Chat();
         RegularUser roman = new RegularUser("Roman");
-        AdministratorUser zloy = new AdministratorUser("Zloy");
-        zloy.blockRegUser(roman);
+        chat.addUserToChat(roman);
+        AdministratorUser admin = new AdministratorUser("Admin");
+        chat.addUserToChat(admin);
+//        admin.blockRegUser(roman);
+//        chat.sendTextMessage(admin.fillingTextMessage(), admin);
         chat.sendTextMessage(roman.fillingTextMessage(), roman);
         chat.readTextMessages();
-//        for (int i = 0; i < chat.blockedUsersList.size(); i++) {
-//            System.out.println(chat.blockedUsersList.get(i));
-//        }
+//        chat.showBlockedUsers();
 
     }
 }
