@@ -10,6 +10,19 @@ public class Chat {
     Date dateNow = new Date();
 
     /**
+     * Список участиков чата.
+     */
+    static ArrayList<String> chatUsers = new ArrayList<>();
+
+    /**
+     * Добавление юзера в чат.
+     * @param user
+     */
+    void addUserToChat(User user) {
+        chatUsers.add(user.name);
+    }
+
+    /**
      * Список заблокированных пользователей. Без static список обнуляется.
      */
     static ArrayList<String> blockedUsersList = new ArrayList<>();
@@ -28,14 +41,14 @@ public class Chat {
     }
 
     /**
-     * Метод проверяет, находится ли пользователь в списке заблокированных и, если нет, - записывает в файл сообщения,
-     * добавляя отправителя и время
+     * Метод проверяет, находится ли пользователь в списке участников чата и не заблокирован ли он, и, если нет, -
+     * записывает в файл сообщения, добавляя отправителя и время.
      * @param tm сообщение, созданное в классе RegularUser/AdministratorUser/ChatHolder
      * @param user
      * @throws IOException
      */
     public void sendTextMessage(TextMessage tm, User user) throws IOException {
-        if (!blockedUsersList.contains(user.name)) {
+        if ((chatUsers.contains(user.name)) && (!blockedUsersList.contains(user.name))) {
             writer.write(tm.showMessage() + "\n" + user.name + ", " + dateNow + "\n");
             writer.flush();
             writer.close();
