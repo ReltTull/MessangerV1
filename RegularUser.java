@@ -6,7 +6,7 @@ public class RegularUser extends User{
     }
 
     @Override
-    TextMessagesStorage fillingTextMessage() {
+    TextMessage fillingTextMessage() {
         return super.fillingTextMessage();
     }
 
