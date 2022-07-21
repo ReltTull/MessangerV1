@@ -3,7 +3,7 @@ import java.io.IOException;
 public class AdministratorUser extends User {
     Chat chat = new Chat();
     @Override
-    TextMessage fillingTextMessage() {
+    TextMessagesStorage fillingTextMessage() {
         return super.fillingTextMessage();
     }
 
