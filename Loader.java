@@ -9,8 +9,8 @@ public class Loader {
      * Передача пути к файлу сохранению
      * @throws IOException
      */
-    public Loader() throws IOException {
-        this.path = new File("Saves//Save1.txt");
+    public Loader(String pathname) throws IOException {
+        this.path = new File(pathname);
     }
 
     /**
