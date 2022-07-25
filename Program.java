@@ -12,9 +12,9 @@ public class Program {
 //        chat.sendTextMessage(roman.fillingTextMessage(), roman);
 //        chat.readTextMessages();
 //        chat.showBlockedUsers();
-//        Saver saver = new Saver("D://GeekBrains//Saves//Save1.txt"); // указать путь к файлу
+//        Saver saver = new Saver("Saves//Save1.txt"); // указать путь к файлу
 //        saver.fillingSaveFile();
-        Loader loader = new Loader();
+        Loader loader = new Loader("Saves//Save1.txt"); // указать путь к файлу
         loader.load();
     }
 }
