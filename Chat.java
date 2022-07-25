@@ -13,13 +13,19 @@ public class Chat {
      * Список участиков чата.
      */
     static ArrayList<String> chatMembers = new ArrayList<>();
-
     /**
      * Добавление юзера в чат.
      * @param user
      */
     void addUserToChat(User user) {
         chatMembers.add(user.name);
+    }
+
+    static ArrayList<String> chatAdmins = new ArrayList<>();
+    void addAdmin(User user) {
+        if (chatMembers.contains(user.name)) {
+            chatAdmins.add(user.name);
+        }
     }
 
     /**
@@ -53,7 +59,6 @@ public class Chat {
             writer.flush();
             writer.close();
         }
-        else return;
     }
 
     /**
