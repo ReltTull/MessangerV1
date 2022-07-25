@@ -9,9 +9,12 @@ public class Program {
         chat.addUserToChat(admin);
 //        admin.blockRegUser(roman);
 //        chat.sendTextMessage(admin.fillingTextMessage(), admin);
-        chat.sendTextMessage(roman.fillingTextMessage(), roman);
-        chat.readTextMessages();
+//        chat.sendTextMessage(roman.fillingTextMessage(), roman);
+//        chat.readTextMessages();
 //        chat.showBlockedUsers();
-
+//        Saver saver = new Saver("D://GeekBrains//Saves//Save1.txt"); // указать путь к файлу
+//        saver.fillingSaveFile();
+        Loader loader = new Loader();
+        loader.load();
     }
 }
