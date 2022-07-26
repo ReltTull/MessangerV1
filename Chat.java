@@ -12,19 +12,27 @@ public class Chat {
     /**
      * Список участиков чата.
      */
-    static ArrayList<String> chatMembers = new ArrayList<>();
+    static ArrayList<User> chatMembers = new ArrayList<>();
+
     /**
      * Добавление юзера в чат.
+     *
      * @param user
      */
     void addUserToChat(User user) {
-        chatMembers.add(user.name);
+        chatMembers.add(user);
     }
 
-    static ArrayList<String> chatAdmins = new ArrayList<>();
+    void showMembers() {
+        for (int i = 0; i < chatMembers.size(); i++) {
+            System.out.println(chatMembers.get(i).name);
+        }
+    }
+    static ArrayList<User> chatAdmins = new ArrayList<>();
+
     void addAdmin(User user) {
-        if (chatMembers.contains(user.name)) {
-            chatAdmins.add(user.name);
+        if (chatMembers.contains(user)) {
+            chatAdmins.add(user);
         }
     }
 
@@ -49,7 +57,8 @@ public class Chat {
     /**
      * Метод проверяет, находится ли пользователь в списке участников чата и не заблокирован ли он, и, если нет, -
      * записывает в файл сообщения, добавляя отправителя и время.
-     * @param tm сообщение, созданное в классе RegularUser/AdministratorUser/ChatHolder
+     *
+     * @param tm   сообщение, созданное в классе RegularUser/AdministratorUser/ChatHolder
      * @param user
      * @throws IOException
      */
@@ -63,6 +72,7 @@ public class Chat {
 
     /**
      * Метод при помощи связки FileReader и Scanner проходится по файлу с сообщениями и выводит их
+     *
      * @throws IOException
      */
     public void readTextMessages() throws IOException {
